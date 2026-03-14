@@ -60,17 +60,17 @@ function TerminalEmulator() {
     <div ref={ref} className="font-mono text-sm rounded-2xl overflow-hidden shadow-md-blue border border-primary/10">
       {/* Terminal header */}
       <div className="flex items-center gap-2 px-5 py-3.5 bg-navy">
-        <div className="w-3 h-3 rounded-full bg-red-400" />
-        <div className="w-3 h-3 rounded-full bg-yellow-400" />
-        <div className="w-3 h-3 rounded-full bg-green-400" />
-        <span className="ml-3 text-xs text-white/40 tracking-wider">bayu@iboy ~ terminal</span>
+        <div className="w-3 h-3 rounded-full" style={{ background: "#f87171" }} />
+        <div className="w-3 h-3 rounded-full" style={{ background: "#facc15" }} />
+        <div className="w-3 h-3 rounded-full" style={{ background: "#4ade80" }} />
+        <span className="ml-3 text-xs tracking-wider" style={{ color: "rgba(255,255,255,0.4)" }}>bayu@iboy ~ terminal</span>
       </div>
 
       {/* Terminal body */}
       <div className="bg-navy/95 p-6 min-h-[220px]">
         <div className="flex items-center gap-2 mb-4">
           <span className="text-primary font-semibold">$</span>
-          <span className="text-white/70">whoami</span>
+          <span style={{ color: "rgba(255,255,255,0.7)" }}>whoami</span>
         </div>
 
         {lines.map((line, i) => (
@@ -79,7 +79,7 @@ function TerminalEmulator() {
             {line.typed ? (
               <>
                 <span className="text-primary/80">{line.key}:</span>
-                <span className="text-green-300">{line.value.startsWith("[") ? line.typed.slice(line.key.length + 2) : line.value === line.typed.slice(line.key.length + 2) ? line.value : line.typed.slice(line.key.length + 2)}</span>
+                <span style={{ color: "#86efac" }}>{line.value.startsWith("[") ? line.typed.slice(line.key.length + 2) : line.value === line.typed.slice(line.key.length + 2) ? line.value : line.typed.slice(line.key.length + 2)}</span>
                 {i === currentLine && !line.done && (
                   <span className="terminal-cursor text-primary">█</span>
                 )}
